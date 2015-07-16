@@ -30,7 +30,7 @@ $(document).ready(function(){
 			var hours = today.getHours();
 			var minutes = today.getMinutes();
 			
-			$('.searchResults').append("<div class='searchResultsWrapper'><p class='searchResult'>" + ui.item.value + " - " + $.datepicker.formatDate('yy/mm/dd', new Date()) + " " + hours + ":" + minutes + "</p></div>");
+			$('.searchResults').append("<div class='searchResultsWrapper'><p class='searchResult'><i class='fa fa-check'></i>" + ui.item.value + " - " + $.datepicker.formatDate('yy/mm/dd', new Date()) + " " + hours + ":" + minutes + "</p></div>");
 			
 			$(this).val(''); 
 			return false; 
