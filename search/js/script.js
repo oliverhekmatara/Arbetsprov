@@ -10,7 +10,7 @@ $(document).ready(function(){
 				  method: 'GET',
 				  datatype: 'JSON',
 				  data:  {
-		            q: request.term
+					  q: request.term
 		          },
 		          success: function( data ) {
 		        	  var matches = $.map( data, function(v, i) {
