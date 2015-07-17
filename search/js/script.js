@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	
-	var rootUrl = 'http://jsonplaceholder.typicode.com';
+	var url = 'http://jsonplaceholder.typicode.com/users';
 	var searchInput = $("#searchInput");
 	
 	searchInput.autocomplete({
 		source: function( request, response ) {
 			$.ajax({
-				  url: rootUrl + '/users',
+				  url: url,
 				  method: 'GET',
 				  datatype: 'JSON',
 				  data:  {
@@ -18,19 +18,22 @@ $(document).ready(function(){
 		        	        return v.name;
 		        	      }
 		        	  });
-		        	    response(matches);
-		            
+		        	  
+		        	  response(matches); 
 		          }
 			});
 		},
 		minLength: 1,
 		select: function(event, ui){
-			
 			var today = new Date();
 			var hours = today.getHours();
 			var minutes = today.getMinutes();
 			
-			$('.searchResults').append("<div class='searchResultsWrapper'><p class='searchResult'><i class='fa fa-check'></i>" + ui.item.value + " - " + $.datepicker.formatDate('yy/mm/dd', new Date()) + " " + hours + ":" + minutes + "</p></div>");
+			var resultRow = "<div class='searchResultsWrapper'><p class='searchResult'><i class='fa fa-check'></i>" 
+							+ ui.item.value + " - " + $.datepicker.formatDate('yy/mm/dd', new Date()) + " " + hours 
+							+ ":" + minutes + "</p></div>";
+			
+			$('.searchResults').append(resultRow);
 			
 			$(this).val(''); 
 			return false; 
